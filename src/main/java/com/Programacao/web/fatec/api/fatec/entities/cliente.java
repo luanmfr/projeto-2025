@@ -1,16 +1,19 @@
 package com.Programacao.web.fatec.api.fatec.entities;
 
 public class cliente {
-    private int id;
+    private Long id;
     private String nome;
     private int idade;
+    private String endereco;
 
-    public cliente() {
+    public cliente(){
     }
-    public int getId() {
+
+   
+    public Long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getNome() {
@@ -24,6 +27,13 @@ public class cliente {
     }
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
     
 }
