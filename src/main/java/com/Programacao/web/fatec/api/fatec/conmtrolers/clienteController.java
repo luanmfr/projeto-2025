@@ -6,11 +6,12 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.integration.IntegrationProperties.RSocket.Client;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.Programacao.domain.ClienteService;
 import com.Programacao.web.fatec.api.fatec.entities.cliente;
 
 
@@ -24,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/api/cliente")
 
 public class clienteController {
+    @Autowired
+    private ClienteService clienteService;
+
     private static final Logger logger = LoggerFactory.getLogger(clienteController.class.getName());
 
         private final List<cliente> clientes = new ArrayList<>();
@@ -41,7 +45,7 @@ public class clienteController {
     }
     @GetMapping("/listarclientes")
     public List<cliente> listarClientes(){
-            return clientes;
+            return clienteService.listarClientes();
 
     }
     
